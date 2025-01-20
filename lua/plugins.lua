@@ -30,7 +30,7 @@ return require('lazy').setup({
 	},
 
 	-- 常用插件
-	{'tpope/vim-commentary'},					-- 注释插件
+	{'numToStr/Comment.nvim'},					-- 注释插件
 	{
       'nvim-tree/nvim-tree.lua',				-- 文件浏览插件
       dependencies = {
@@ -45,9 +45,10 @@ return require('lazy').setup({
 	{ 'plasticboy/vim-markdown'},				-- Markdown 语法高亮和支持
 	{
 		"iamcco/markdown-preview.nvim",
-		run = function() vim.fn["mkdp#util#install"]() end,
-	},
-	
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function() vim.fn["mkdp#util#install"]() end,
+	}
 })
 
 ---------------------------------------------

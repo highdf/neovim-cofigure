@@ -7,7 +7,7 @@
 <!-- vim-markdown-toc -->
 
 ## 目录结构
-```shell
+```help
 init.lua                                    # 入口文件
 lua                                         # 配置所在目录
     | ------>basic.lua                      # 基本配置文件
