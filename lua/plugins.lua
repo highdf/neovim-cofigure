@@ -37,7 +37,7 @@ return require('lazy').setup({
        	'nvim-tree/nvim-web-devicons',			-- 可选，用于文件图标
       },
       tag = 'nightly'							-- 可选，默认情况下每周更新一次
-    },
+	},
 
 	-- Markdown 插件
 	{'mzlogin/vim-markdown-toc'},				-- 生成目录
@@ -48,7 +48,23 @@ return require('lazy').setup({
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
 		build = function() vim.fn["mkdp#util#install"]() end,
-	}
+	},
+	 
+	-- 调试插件
+	-- {
+	-- 	"andrewferrier/debugprint.nvim"
+	-- },
+
+	-- {
+	-- 	"mfussenegger/nvim-dap"
+	-- },
+	-- {
+	-- 	"rcarriga/nvim-dap-ui",
+	-- 	requires = {"mfussenegger/nvim-dap"}
+	-- },
+	-- {
+	-- 	"theHamsta/nvim-nio"
+	-- },
 })
 
 ---------------------------------------------
