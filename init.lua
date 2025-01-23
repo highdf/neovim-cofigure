@@ -8,12 +8,13 @@ require('colorchemes')			-- 主题配色文件
 ------------------------------------
 -- 插件配置文集
 ------------------------------------
-require('plugin-config.lualine')				-- lualine插件
-require('plugin-config.markdown-toc')			-- markdown插件
-require('plugin-config.preview-nvim')			-- preview插件
-require('plugin-config.nvim-tree')				-- tree插件
-require('plugin-config.nvim-comment')			-- nvim-comment插件
+ require('plugin-config.lualine')				-- lualine插件
+ require('plugin-config.Comment')				-- Comment插件
+ require('plugin-config.markdown-toc')			-- markdown插件
+ require('plugin-config.preview-nvim')			-- preview插件
+ require('plugin-config.nvim-tree')				-- tree插件
+ require('plugin-config.nvim-treesitter')		-- treesitter插件
 
 -- 可选
 -- ~/.config/nvim/init.lua
--- require('plugin-config.nvim-treesitter')		-- treesitter插件
+ -- require('plugin-config.vim-markdown')			-- nvim-treesitter插件

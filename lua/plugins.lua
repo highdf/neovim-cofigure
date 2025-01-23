@@ -1,22 +1,8 @@
 ---------------------------------------------
 -- 插件管理
 ---------------------------------------------
--- 准备 lazy.nvim 模块（存在性检测）
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- 使用最新稳定版本分支
-        lazypath,
-    })
-end
-
--- 将 lazy 添加至 runtime path 最前端, 确保优先搜索到它提供的资源
-vim.opt.rtp:prepend(lazypath)
+ -- 将 lazy 添加至 runtime path 最前端, 确保优先搜索到它提供的资源
+ vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 
 return require('lazy').setup({
 	-- 主题插件
@@ -30,7 +16,9 @@ return require('lazy').setup({
 	},
 
 	-- 常用插件
-	{'numToStr/Comment.nvim'},					-- 注释插件
+	{
+		'numToStr/Comment.nvim',					-- 注释插件
+	},					
 	{
       'nvim-tree/nvim-tree.lua',				-- 文件浏览插件
       dependencies = {
@@ -38,33 +26,32 @@ return require('lazy').setup({
       },
       tag = 'nightly'							-- 可选，默认情况下每周更新一次
 	},
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({
+			-- Configuration here, or leave empty to use defaults
+			})
+		end
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+	},
 
 	-- Markdown 插件
 	{'mzlogin/vim-markdown-toc'},				-- 生成目录
 	{'godlygeek/tabular'},						-- 辅助表格对齐
 	{ 'plasticboy/vim-markdown'},				-- Markdown 语法高亮和支持
-	{
+	{											-- 预览插件
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
 		build = function() vim.fn["mkdp#util#install"]() end,
 	},
 	 
-	-- 调试插件
-	-- {
-	-- 	"andrewferrier/debugprint.nvim"
-	-- },
-
-	-- {
-	-- 	"mfussenegger/nvim-dap"
-	-- },
-	-- {
-	-- 	"rcarriga/nvim-dap-ui",
-	-- 	requires = {"mfussenegger/nvim-dap"}
-	-- },
-	-- {
-	-- 	"theHamsta/nvim-nio"
-	-- },
 })
 
 ---------------------------------------------
@@ -89,3 +76,13 @@ return require('lazy').setup({
 		---- 加载 lazy.nvim 及指定初始插件集
 		--
 		--
+	-- 调试插件
+	-- {
+	-- 	"mfussenegger/nvim-dap"
+	-- },
+	-- {
+	-- 	"rcarriga/nvim-dap-ui",
+	-- },
+	-- {
+	-- 	'nvim-neotest/nvim-nio'
+	-- },
