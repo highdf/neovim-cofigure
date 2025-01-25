@@ -9,6 +9,7 @@ require'nvim-treesitter.configs'.setup {
 	indent = {
 		enable = true
 	},
+
 	-- foldenable = true,               -- 启用折起功能
 	-- incremental_selection = {
 	-- 	enable = true,
