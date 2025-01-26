@@ -12,10 +12,11 @@ return require('lazy').setup({
 	},
 
 	-- UI 改善插件
-	{												-- 状态栏美化
-		'nvim-lualine/lualine.nvim',
-		dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
-		'kdheepak/tabline.nvim',
+	 {												-- 状态栏美化
+		 'nvim-lualine/lualine.nvim',
+		 dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
+		 'kdheepak/tabline.nvim',
+		
 	},
 
 	-- 常用插件
@@ -39,9 +40,7 @@ return require('lazy').setup({
 		'godlygeek/tabular',						-- 辅助表格对齐
 		'plasticboy/vim-markdown',					-- Markdown 语法高亮和支持
 
-		-- "iamcco/markdown-preview.nvim",				-- 预览插件
-
-		"iamcco/markdown-preview.nvim",
+		"iamcco/markdown-preview.nvim",				-- 预览插件
 		-- cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		-- build = "cd app && yarn install",
 		-- init = function()
@@ -51,11 +50,11 @@ return require('lazy').setup({
 	},
 
 	-- 调试插件
-	{
-		"mfussenegger/nvim-dap",
-		"rcarriga/nvim-dap-ui",
-		'nvim-neotest/nvim-nio',
-	},
+	-- {
+	-- 	"mfussenegger/nvim-dap",
+	-- 	"rcarriga/nvim-dap-ui",
+	-- 	'nvim-neotest/nvim-nio',
+	-- },
 })
 
 ---------------------------------------------
