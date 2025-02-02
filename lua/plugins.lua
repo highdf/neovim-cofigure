@@ -9,14 +9,14 @@ return require('lazy').setup({
 	{
 		'navarasu/onedark.nvim',					-- OneDark 主题
 		'tomasr/molokai',							-- molokai主题
+		"catppuccin/nvim", name = "catppuccin",		-- catppuccin主题
 	},
 
 	-- UI 改善插件
-	 {												-- 状态栏美化
-		 'nvim-lualine/lualine.nvim',
-		 dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
-		 'kdheepak/tabline.nvim',
-		
+	{												-- 状态栏美化
+		'nvim-lualine/lualine.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
+		'kdheepak/tabline.nvim',
 	},
 
 	-- 常用插件
@@ -41,22 +41,24 @@ return require('lazy').setup({
 		'plasticboy/vim-markdown',					-- Markdown 语法高亮和支持
 
 		"iamcco/markdown-preview.nvim",				-- 预览插件
-		-- cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		-- build = "cd app && yarn install",
-		-- init = function()
-		-- 	vim.g.mkdp_filetypes = { "markdown" }
-		-- end,
-		-- ft = { "markdown" },
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
 	},
 
 	-- 调试插件
-	-- {
-	-- 	"mfussenegger/nvim-dap",
-	-- 	"rcarriga/nvim-dap-ui",
-	-- 	'nvim-neotest/nvim-nio',
-	-- },
+	{
+		-- "mfussenegger/nvim-dap",
+		-- "rcarriga/nvim-dap-ui",
+		-- 'nvim-neotest/nvim-nio',
+		'sakhnik/nvim-gdb',
+	},
 })
 
 ---------------------------------------------
 -- 可选
 ---------------------------------------------
+-- 'stevearc/dressing.nvim',	

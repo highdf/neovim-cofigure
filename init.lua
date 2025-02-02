@@ -15,8 +15,11 @@ require('plugin-config.preview-nvim')			-- preview插件
 require('plugin-config.nvim-tree')				-- tree插件
 require('plugin-config.nvim-treesitter')		-- treesitter插件
 require('plugin-config.surrond')				-- surrond插件
- require('plugin-config.tabline')				-- tabline插件
+require('plugin-config.tabline')				-- tabline插件
 
 -- 可选
- -- require('plugin-config.vim-markdown')			-- nvim-treesitter插件
- -- require('plugin-config.dap.dap-c')				-- c语言调试器
+-- require('plugin-config.dap')					-- dap配置文件
+-- require('plugin-config.dap-ui')					-- dap-ui配置文件
+-- require('plugin-config.dap.dap-c')				-- c语言调试器
+
+-- require('plugin-config.dressing')				-- dressing插件
