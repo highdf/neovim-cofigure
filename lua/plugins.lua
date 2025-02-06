@@ -17,6 +17,14 @@ return require('lazy').setup({
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
 		'kdheepak/tabline.nvim',
+		"nvim-treesitter/nvim-treesitter",			-- 语法高粱插件
+		build = ":TSUpdate",
+		{
+			"keaising/im-select.nvim",
+			config = function()
+				require("im_select").setup({})
+			end,
+		},
 	},
 
 	-- 常用插件
@@ -30,8 +38,7 @@ return require('lazy').setup({
 		"kylechui/nvim-surround",					-- 括号操作插件
 		version = "*", 	
 		event = "VeryLazy",
-		"nvim-treesitter/nvim-treesitter",			-- 语法高粱插件
-		build = ":TSUpdate",
+		'stevearc/dressing.nvim',	
 	},					
 
 	-- Markdown 插件
@@ -41,7 +48,6 @@ return require('lazy').setup({
 		'plasticboy/vim-markdown',					-- Markdown 语法高亮和支持
 
 		"iamcco/markdown-preview.nvim",				-- 预览插件
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		build = "cd app && yarn install",
 		init = function()
 			vim.g.mkdp_filetypes = { "markdown" }
@@ -51,14 +57,35 @@ return require('lazy').setup({
 
 	-- 调试插件
 	{
-		-- "mfussenegger/nvim-dap",
-		-- "rcarriga/nvim-dap-ui",
-		-- 'nvim-neotest/nvim-nio',
 		'sakhnik/nvim-gdb',
+	},
+
+	-- latex插件
+	{
+	  -- "lervag/vimtex",
+	  -- lazy = false,     -- we don't want to lazy load VimTeX
+	},
+
+	-- 补全插件
+	{
+		 'neovim/nvim-lspconfig',
+		 'hrsh7th/cmp-nvim-lsp',
+		 'hrsh7th/cmp-buffer',
+		 'hrsh7th/cmp-path',
+		 'hrsh7th/cmp-cmdline',
+		 'hrsh7th/nvim-cmp',
+		
+		 'L3MON4D3/LuaSnip',
+		 'saadparwaiz1/cmp_luasnip',
+
+		'onsails/lspkind-nvim',
+		"williamboman/mason.nvim"
 	},
 })
 
 ---------------------------------------------
 -- 可选
 ---------------------------------------------
--- 'stevearc/dressing.nvim',	
+-- "mfussenegger/nvim-dap",
+-- "rcarriga/nvim-dap-ui",
+-- 'nvim-neotest/nvim-nio',
