@@ -1,11 +1,13 @@
 ------------------------------------
 -- dap配置
 ------------------------------------
-local dap = require("dap")
-dap.adapters.gdb = {
+local dap = require('dap')
+dap.adapters.codelldb = {
   type = "executable",
-  command = "gdb",
-  args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
+  command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
+
+  -- On windows you may have to uncomment this:
+  -- detached = false,
 }
 
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end)

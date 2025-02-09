@@ -24,4 +24,4 @@ require("nvim-tree").setup({			-- 常用设置
 local map = vim.api.nvim_set_keymap							-- 设置变量
 local opt = {noremap = true, silent = true }
 
-map('n','<C-n>',':NvimTreeFindFileToggle<enter>',opt)		-- 打开或关闭目录树
+map('n','t',':NvimTreeFindFileToggle<enter>',opt)		-- 打开或关闭目录树

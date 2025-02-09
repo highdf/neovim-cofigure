@@ -1,10 +1,14 @@
 local cmp = require'cmp'
-local lspkind = require('lspkind')
+local lspkind = require'lspkind'
+local luasnip = require("luasnip")
 
 cmp.setup({
+	completion = {
+		autocomplete = false,              -- 禁止自动补全
+	},
 	snippet = {
-		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
+			-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
 			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
 		end,
 	},
@@ -12,21 +16,25 @@ cmp.setup({
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
-	mapping = cmp.mapping.preset.insert({
-
-	}),
-	format = lspkind.cmp_format({
-		with_text = true, -- do not show text alongside icons
-		maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-		before = function (entry, vim_item)
-			-- Source 显示提示来源
-			vim_item.menu = "["..string.upper(entry.source.name).."]"
-			return vim_item
-		end
-	}),
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = 'symbol_only', -- 显示图标
+			preset = 'codicons', -- 使用 Codicon 图标
+			ellipsis_char = '...', -- 使用 … 作为省略符
+			maxwidth = 15, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+		}),
+	},
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' }, -- For luasnip users.
+		-- { name = 'vsnip' }, -- For vsnip users.
+	  { name = 'luasnip' },
 	}, {
 			{ name = 'buffer' },
 		})
@@ -70,14 +78,8 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 require'lspconfig'['clangd'].setup {
     capabilities = capabilities,
 }
+require'lspconfig'['jdtls'].setup {
+    capabilities = capabilities,
+}
 
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
 
