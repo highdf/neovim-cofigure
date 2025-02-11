@@ -12,8 +12,6 @@ local opt = {noremap = true, silent = true }
 map('n','<leader>U','gUawA',opt)									-- 将单词转化为大写
 map('n','<leader>u','guawA',opt)									-- 将单词转化为小写	
 map('n','<leader><leader>','o<C-{>k',opt)							-- 在当勤行插入空行
-map('n','<leader>f','a{<enter>}<C-{>O',opt)							-- 在()后添加{}
-map('n','<leader>b','i{<enter>}<C-{>O',opt)							-- 添加空代码快
 map('n','<leader>r',':reg<enter>',opt)								-- 显示寄存器内容
 map('n','<leader>m',':wa | make ',opt)								-- 使用make
 map('n','<leader>M',':argadd Makefile | edit Makefile<cr>',opt)		-- 添加Makefile到参数表
@@ -99,3 +97,8 @@ map('n','<A-h>','<C-w>h',opt);
 map('n','<A-j>','<C-w>j',opt);
 map('n','<A-k>','<C-w>k',opt);
 map('n','<A-l>','<C-w>l',opt);
+
+------------------------------------
+-- 插入括号
+------------------------------------
+map("i","<C-f>"," {<cr>}<C-o>O",opt);

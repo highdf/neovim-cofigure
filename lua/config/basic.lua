@@ -7,6 +7,7 @@ vim.opt.fileencoding = "utf-8"
 ------------------------------------
 -- 基础设置
 ------------------------------------
+vim.opt.termguicolors = true
 vim.o.hlsearch = false				-- 取消当前搜索高亮
 vim.o.scrolloff = 4					-- jk移动时光标下上方保留4行
 vim.o.sidescrolloff = 4				-- jk移动时光标下下方保留4行
@@ -20,8 +21,6 @@ vim.opt.mouse = ""					-- 移除所有类型的鼠标支持
 vim.opt.wrap = false				-- 取消屏幕行折叠
 vim.opt.autoindent = false		-- 开启自动缩进
 vim.opt.smartindent = false		-- 开启智能缩进
-
--- 其他配置...
 
 -- vim.opt.mouse = "n"					-- 如果只是想保留某种模式下的鼠标支持，如普通模式
 -- vim.opt.softtabstop = 4				-- 输入 <TAB> 键时实际插入的空格数目
