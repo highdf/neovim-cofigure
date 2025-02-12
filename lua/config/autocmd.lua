@@ -1,3 +1,4 @@
+-- 主题
 local hour = tonumber(vim.fn.strftime("%H"))
 
 -- tokyonight
@@ -18,3 +19,4 @@ else
 	vim.cmd([[colorscheme catppuccin-mocha]])
 	options = { theme = 'catppuccin-mocha' }
 end
+
